@@ -60,14 +60,25 @@ class GFG {
 
 class Solution {
     public static int findMagicalNumber(int N, int[] arr) {
-       int ans =0;
-       for(int i=0;i<N;i++){
-           if(i==arr[i]){
-               return i;
-           }
-       }
-       
-       return -1;
+         int low = 0;
+            int high = N-1;
+            int ans =-1;
+            while(low<=high){
+                int mid = (low+high)/2;
+                if(arr[mid]==mid){
+                    high--;
+                    ans=mid;
+                }
+                else if(arr[mid]>mid){
+                    high--;
+                   
+                }
+                else{
+                    low++; 
+                }
+            }
+            
+            return ans;
     }
 }
         
