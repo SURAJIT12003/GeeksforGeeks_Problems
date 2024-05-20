@@ -6,7 +6,7 @@ Easy - Medium - Hard :green_circle:-:yellow_circle:-:red_circle:
 
 ## Author :bust_in_silhouette:
 
-My Leetcode  Prifile Link - https://auth.geeksforgeeks.org/user/surajit1
+My GeeksforGeeks  Prifile Link - https://auth.geeksforgeeks.org/user/surajit1
 
 ## Contents :open_book:
 
