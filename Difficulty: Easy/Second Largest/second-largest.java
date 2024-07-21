@@ -1,24 +1,23 @@
 //{ Driver Code Starts
-//Initial Template for Java
-import java.util.stream.Collectors; 
-import java.util.*;
+// Initial Template for Java
 import java.io.*;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int tc = Integer.parseInt(br.readLine().trim());
-        while (tc-- > 0) {
-            String[] inputLine;
-            int n = Integer.parseInt(br.readLine().trim());
-            int[] arr = new int[n];
-            inputLine = br.readLine().trim().split(" ");
-            for (int i = 0; i < n; i++) {
-                arr[i] = Integer.parseInt(inputLine[i]);
+        Scanner sc = new Scanner(System.in);
+        int t = Integer.parseInt(sc.nextLine());
+        while (t-- > 0) {
+            List<Integer> arr = new ArrayList<>();
+            String input = sc.nextLine();
+            Scanner ss = new Scanner(input);
+            while (ss.hasNextInt()) {
+                arr.add(ss.nextInt());
             }
-
-            int ans = new Solution().print2largest(arr, n);
+            Solution ob = new Solution();
+            int ans = ob.print2largest(arr);
             System.out.println(ans);
         }
     }
@@ -26,22 +25,24 @@ public class Main {
 
 // } Driver Code Ends
 
+
+
   
 
 
 //User function Template for Java
 
 class Solution {
-    int print2largest(int arr[], int n) {
-      
+    int print2largest(List<Integer>arr) {
+      int n = arr.size();
         int max =0;
-        for(int v:arr){
-            max = Math.max(max,v);
+        for(int i=0;i<arr.size();i++){
+            max = Math.max(max,arr.get(i));
         }
         int se = -1;
-        for(int v:arr){
-            if(max>v){
-                se = Math.max(se,v);
+        for(int i=0;i<arr.size();i++){
+            if(max>arr.get(i)){
+                se = Math.max(se,arr.get(i));
             }
         }
         
