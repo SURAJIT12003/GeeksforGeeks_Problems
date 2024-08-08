@@ -105,39 +105,24 @@ class GfG {
 // } Driver Code Ends
 
 
+// User function Template for Java
 
-
-
-
-//User function Template for Java
-
-
-class Solution
-{
-    //Function to check whether a Binary Tree is BST or not.
-      public boolean check(Node root,int left,int right){
-        if(left==right){
-            return true;
-        }
+class Solution {
+    
+    public boolean ischeck(Node root,int left,int right){
         if(root==null){
             return true;
         }
-
-        if(left>=root.data || root.data>=right){
+        if(root.data<=left || root.data>=right){
             return false;
         }
-        boolean l = check(root.left,left,root.data);
-        boolean r = check(root.right,root.data,right);
-        if(l==false || r==false){
-            return  false;
-        }
-        return true;
-
-
+        
+        boolean left1 = ischeck(root.left,left,root.data);
+        boolean right1 = ischeck(root.right,root.data,right);
+        return left1 && right1;
     }
-    boolean isBST(Node root)
-    {
-        // code here.
-        return check(root,Integer.MIN_VALUE,Integer.MAX_VALUE);
+    boolean isBST(Node root) {
+        return ischeck(root,Integer.MIN_VALUE,Integer.MAX_VALUE);
+        
     }
 }
