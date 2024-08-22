@@ -20,16 +20,20 @@ class GFG
 
 
 class Solution{
-    static int isPrime(int N){
-        if(N==1){
+    static int isPrime(int number){
+         if(number==1 || number==0){
             return 0;
         }
-        
-        for(int i=2;i<=Math.sqrt(N);i++){
-            if(N%i==0){
+        if(number==2){
+            return 1 ;
+        }
+
+        for(int i=2;i<=Math.sqrt(number);i++){
+            if(number%i==0){
                 return 0;
             }
         }
+
         return 1;
     }
 }
