@@ -44,17 +44,17 @@ class Solution {
     long maxSubarraySum(int[] arr) {
 
         // Your code here
-        long max =0;
-        long ans = arr[0];
-        for(int v:arr){
-            max+=v;   
-            ans = Math.max(ans,max);
-            if(max<0){
-                max =0;
-            }
-           
-        }
+        long sum =0;
+        long max = arr[0];
+        int n = arr.length;
         
-        return ans;
+        for(int i=0;i<n;i++){
+            sum+=arr[i];
+            max = Math.max(max,sum);
+            if(sum<0){
+                sum=0;
+            }
+        }
+        return max;
     }
 }
