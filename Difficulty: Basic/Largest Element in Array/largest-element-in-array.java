@@ -50,11 +50,10 @@ class GFG {
 
 class Solution {
     public static int largest(int[] arr) {
-        // code here
-        int m = 0;
+        int max =0;
         for(int v:arr){
-            m = Math.max(v,m);
+            max = Math.max(v,max);
         }
-        return m;
+        return max;
     }
 }
