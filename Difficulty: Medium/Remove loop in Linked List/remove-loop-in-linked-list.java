@@ -100,51 +100,39 @@ class Node
 class Solution {
     // Function to remove a loop in the linked list.
     public static void removeLoop(Node head) {
-        // code here
-        // remove the loop without losing any nodes
-        if(head==null || head.next==null){
-            return ;
-        }
-        Node temp = head;
-        Node ptr = head;
-
-        while(ptr!=null){
-            
-            temp = temp.next;
-            if( ptr.next==null || ptr.next.next==null){
-                ptr = ptr.next;
-                continue;
-            }
-            ptr = ptr.next.next;
-            if(temp==ptr){
-                Node s  = head;
-                Node t = ptr;
-                Node match = null;
-                while(s!=t){
-                     
-                    if(s.next==t.next){
-                        match = t;
-                    }
-                    s = s.next;
-                    t = t.next;
-                }
-               // System.out.println(t.data);
-               // System.out.println(s.data);
-                if(match!=null){
-                   // System.out.println(match.data);
-                    match.next = null;
-                }
-                else{
-                    
-                    while(t.next!=s){
-                     
-                        t = t.next;
-                    }
-                    t.next = null;
-                }
-                
-            }
-        }
-        return ;
+       Node ans = head;
+       Node temp = head;
+       Node ptr = head;
+       
+       
+       while(ptr!=null){
+           temp = temp.next;
+           if(ptr.next==null){
+               return;
+           }
+           ptr = ptr.next.next;
+           if(ptr==temp){
+               if(ptr==head){
+                   Node st = head.next;
+                   while(st.next!=head){
+                       st = st.next;
+                   }
+                   st.next = null;
+                   return ;
+               }
+               Node start = ptr;
+               Node prev  = ptr;
+               head = head.next;
+               start = start.next;
+               
+               while(head!=start){
+                   head = head.next;
+                   start = start.next;
+                   prev = prev.next;
+               }
+               prev.next = null;
+               return ;
+           }
+       }
     }
 }
