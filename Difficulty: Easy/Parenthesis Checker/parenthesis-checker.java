@@ -32,73 +32,45 @@ class Driverclass
 
 
 
-
-
-
-
 class Solution
 {
     //Function to check if brackets are balanced or not.
-    public static boolean check(String s) {
+    static boolean ispar(String x)
+    {
         Stack<Character> st = new Stack<>();
-
-        for (int i = s.length() - 1; i >= 0; i--) {
-            char ch = s.charAt(i);
-
-            if (st.isEmpty()) {
+        for(int i=x.length()-1;i>=0;i--){
+            char ch = x.charAt(i);
+            if(st.isEmpty()){
                 st.push(ch);
-            } else {
-                if (ch == ')' || ch == '}' || ch == ']') {
+            }
+            else{
+                if(ch==')' || ch=='}' || ch==']'){
                     st.push(ch);
-                } else {
-
-                    if (!st.isEmpty()) {
-
-                        if (ch == '(') {
-                            char r = st.peek();
-                            if(r==')'){
-                                st.pop();
-                            }
-                            else{
-                                st.push(ch);
-                            }
+                }
+                else{
+                    char top = st.peek();
+                    if(ch=='('){
+                        if(top!=')'){
+                            return false;
                         }
-                        else if (ch=='{'){
-                            char r = st.peek();
-                            if(r=='}'){
-                                st.pop();
-                            }
-                            else{
-                                st.push(ch);
-                            }
+                    }
+                    else if(ch=='{'){
+                        if(top!='}'){
+                            return false;
                         }
-                        else{
-                            char r = st.peek();
-                            if(r==']'){
-                                st.pop();
-                            }
-                            else{
-                                st.push(ch);
-                            }
-                        }
-
                     }
                     else{
-                        st.push(ch);
+                       if(top!=']'){
+                            return false;
+                        } 
                     }
-
+                    st.pop();
                 }
             }
         }
-
         if(st.isEmpty()){
             return true;
         }
         return false;
-    }
-
-    static boolean ispar(String x)
-    {
-        return check(x);
     }
 }
