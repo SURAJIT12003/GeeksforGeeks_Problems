@@ -43,8 +43,9 @@ class GFG {
 
 class Solution {
     public static int kthSmallest(int[] arr, int k) {
-       Arrays.sort(arr);
-       int r = arr[k-1];
-       return r;
+        // Your code here
+        Arrays.sort(arr);
+        int t = arr[k-1];
+        return t;
     }
 }
